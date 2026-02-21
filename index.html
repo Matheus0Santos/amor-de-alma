@@ -1,48 +1,54 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matheus ❤️ Lainny</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<div class="container">
+    <h1 class="titulo-pagina">Matheus ❤️ Lainny</h1>
 
-    <nav>
-        <a href="index.html">Início</a>
-        <a href="historia.html">Nossa História</a>
-        <a href="sonhos.html">Sonhos</a>
-        <a href="galeria.html">Galeria</a>
-    </nav>
+    <iframe style="display:none" width="0" height="0" src="https://www.youtube.com/embed/S_8_K8DAnlo?autoplay=1&loop=1&playlist=S_8_K8DAnlo" frameborder="0" allow="autoplay"></iframe>
 
-    <div class="container">
-        <h1 class="titulo-pagina">Matheus ❤️ Lainny</h1>
+    <div class="header-info">
+        <div class="clima-box">
+            <p>📍 Recife: <span id="temp-recife">--°C</span></p>
+            <p>📍 Garanhuns: <span id="temp-garanhuns">--°C</span></p>
+        </div>
         
-        <h2 id="contador" class="contador-dias">Calculando nosso amor...</h2>
+        <div class="contadores-tempo">
+            <div id="contador-dias" class="contador-box"></div>
+            <div id="contador-segundos" class="segundos-box"></div>
+        </div>
 
-        <p class="subtitulo">Uma história que começou com uma conversa e virou amor.</p>
+        <div class="calendarios-laterais">
+            <div class="mini-cal">🎂 Meu Níver: <strong>27/07</strong> <br> <span id="regressiva-meu"></span></div>
+            <div class="mini-cal">🎂 Níver Dela: <strong>10/01</strong> <br> <span id="regressiva-dela"></span></div>
+        </div>
+    </div>
 
-        <div class="cards-inicio">
-            <div class="card">
-                <span class="emoji">💬</span>
-                <h3>26/09/2025</h3>
-                <p>O dia em que começamos a nos falar</p>
+    <div class="bloco-texto destaque">
+        <h3>Onde tudo começou... 💬</h3>
+        <p>"Fala, Matheus!" - A primeira conversa que mudou nossas vidas no dia 26/09/2025.</p>
+    </div>
+
+    <h2 class="secao-titulo">Nossa Linha do Tempo</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h4>26/09/2025</h4>
+                <p>Primeiro "Oi" 📱</p>
             </div>
-
-            <div class="card">
-                <span class="emoji">💘</span>
-                <h3>03/10/2025</h3>
-                <p>O dia em que nos conhecemos pessoalmente</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h4>03/10/2025</h4>
+                <p>Primeiro Encontro 💘</p>
+                <small>O frio na barriga era real.</small>
             </div>
-
-            <div class="card">
-                <span class="emoji">❤️</span>
-                <h3>12/10/2025</h3>
-                <p>O começo do nosso namoro</p>
+        </div>
+        <div class="timeline-item active">
+            <div class="timeline-content">
+                <h4>12/10/2025</h4>
+                <p>O Pedido de Namoro ❤️</p>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <div class="grid-final">
+        <div class="mapa-box">
+            <h3>Nosso Primeiro Encontro 📍</h3>
+            <iframe src="
