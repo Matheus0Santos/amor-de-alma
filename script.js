@@ -1,87 +1,41 @@
-// Contador de dias juntos
-const dataInicio = new Date("2025-10-12"); // MUDE PRA DATA DE VOCÊS
+const dataInicio = new Date("2025-10-12T00:00:00");
 
-function atualizarContador() {
-    const hoje = new Date();
-    const diff = hoje - dataInicio;
+function atualizarTudo() {
+    const agora = new Date();
+    
+    // Contador de Dias e Segundos
+    const diff = agora - dataInicio;
     const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const el = document.getElementById("contador");
-    if (el) {
-        el.innerText = "Estamos juntos há " + dias + " dias ❤️";
+    const segundosTotal = Math.floor(diff / 1000);
+    
+    document.getElementById("contador-dias").innerText = `Juntos há ${dias} dias ❤️`;
+    document.getElementById("contador-segundos").innerText = `${segundosTotal.toLocaleString()} segundos de puro amor`;
+
+    // Contagem Regressiva Nivers
+    function regressiva(dataAlvo, elementId) {
+        let alvo = new Date(agora.getFullYear(), dataAlvo.mes - 1, dataAlvo.dia);
+        if (agora > alvo) alvo.setFullYear(agora.getFullYear() + 1);
+        
+        const diasFaltam = Math.ceil((alvo - agora) / (1000 * 60 * 60 * 24));
+        document.getElementById(elementId).innerText = `Faltam ${diasFaltam} dias`;
     }
+
+    regressiva({dia: 27, mes: 7}, "regressiva-meu");
+    regressiva({dia: 10, mes: 1}, "regressiva-dela");
+
+    // Painel de Bodas (Exemplo: Bodas de Mensário)
+    const mesesJuntos = Math.floor(dias / 30);
+    const progresso = (dias % 30 / 30) * 100;
+    document.getElementById("boda-atual").innerText = `Próximo Mensário: ${mesesJuntos + 1} meses`;
+    document.getElementById("progresso-boda").style.width = progresso + "%";
 }
 
-atualizarContador();
-
-// História
-function addEvento() {
-    const titulo = document.getElementById("titulo").value;
-    const data = document.getElementById("data").value;
-    const descricao = document.getElementById("descricao").value;
-
-    const evento = { titulo, data, descricao };
-
-    let eventos = JSON.parse(localStorage.getItem("historia")) || [];
-    eventos.push(evento);
-    localStorage.setItem("historia", JSON.stringify(eventos));
-
-    location.reload();
+// Simulação de Clima (Para funcionar real precisa de chave API, mas deixei o visual pronto)
+function carregarClima() {
+    document.getElementById("temp-recife").innerText = "29°C";
+    document.getElementById("temp-garanhuns").innerText = "21°C";
 }
 
-function carregarHistoria() {
-    let eventos = JSON.parse(localStorage.getItem("historia")) || [];
-    const lista = document.getElementById("listaHistoria");
-    if (lista) {
-        eventos.forEach(e => {
-            lista.innerHTML += `<li><strong>${e.data}</strong> - ${e.titulo}<br>${e.descricao}</li>`;
-        });
-    }
-}
-
-carregarHistoria();
-
-// Sonhos
-function addSonho() {
-    const sonho = document.getElementById("sonhoInput").value;
-    let sonhos = JSON.parse(localStorage.getItem("sonhos")) || [];
-    sonhos.push(sonho);
-    localStorage.setItem("sonhos", JSON.stringify(sonhos));
-    location.reload();
-}
-
-function carregarSonhos() {
-    let sonhos = JSON.parse(localStorage.getItem("sonhos")) || [];
-    const lista = document.getElementById("listaSonhos");
-    if (lista) {
-        sonhos.forEach(s => {
-            lista.innerHTML += `<li>💖 ${s}</li>`;
-        });
-    }
-}
-
-carregarSonhos();
-
-// Galeria
-function addFoto() {
-    const input = document.getElementById("fotoInput");
-    const reader = new FileReader();
-    reader.onload = function() {
-        let fotos = JSON.parse(localStorage.getItem("fotos")) || [];
-        fotos.push(reader.result);
-        localStorage.setItem("fotos", JSON.stringify(fotos));
-        location.reload();
-    };
-    reader.readAsDataURL(input.files[0]);
-}
-
-function carregarFotos() {
-    let fotos = JSON.parse(localStorage.getItem("fotos")) || [];
-    const galeria = document.getElementById("galeria");
-    if (galeria) {
-        fotos.forEach(f => {
-            galeria.innerHTML += `<img src="${f}">`;
-        });
-    }
-}
-
-carregarFotos();
+setInterval(atualizarTudo, 1000);
+carregarClima();
+atualizarTudo();
