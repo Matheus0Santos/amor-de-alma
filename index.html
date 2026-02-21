@@ -1,41 +1,71 @@
-<div class="container">
-    <h1 class="titulo-pagina">Matheus ❤️ Lainny</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matheus ❤️ Lainny</title>
+    <style>
+        /* TUDO QUE ERA DO CSS AGORA ESTÁ AQUI DENTRO */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd); 
+            font-family: 'Segoe UI', sans-serif; 
+            color: #0c4a6e;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    <div class="contador-principal">
-        <h2 id="contador-dias">Calculando...</h2>
-        <span id="contador-segundos" class="segundos-box"></span>
-    </div>
+        nav { 
+            width: 100%; background: rgba(255,255,255,0.8); 
+            padding: 20px; text-align: center; 
+            backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
 
-    <div class="timeline-container">
-        <div class="timeline">
-            <div class="timeline-item">
-                <span class="emoji">💬</span>
-                <h4>26/09</h4>
-                <p>O Começo</p>
-            </div>
-            <div class="timeline-item">
-                <span class="emoji">💘</span>
-                <h4>03/10</h4>
-                <p>Encontro</p>
-            </div>
-            <div class="timeline-item active">
-                <span class="emoji">💍</span>
-                <h4>12/10</h4>
-                <p>Namoro</p>
-            </div>
-        </div>
-    </div>
+        nav a { margin: 0 15px; text-decoration: none; color: #0369a1; font-weight: bold; }
 
-    <div class="bodas-container">
-        <h3 id="boda-titulo-atual">Bodas de Mensário 🎈</h3>
-        <div class="boda-progresso-wrapper">
-            <span class="ponto-boda" id="boda-passada">0 meses</span>
-            <div class="barra-progresso">
-                <div id="progresso-boda" class="preenchimento"></div>
-            </div>
-            <span class="ponto-boda" id="proxima-boda">1 mês</span>
-        </div>
-        <p id="legenda-boda">Rumo à próxima conquista!</p>
-    </div>
+        .container { width: 95%; max-width: 1000px; text-align: center; margin: 40px 0; }
 
-    </div>
+        /* CONTADOR E CARROSSEL */
+        .contador-principal { margin-bottom: 30px; }
+        #contador-dias { font-size: clamp(24px, 5vw, 40px); color: #0369a1; }
+        .segundos-box { font-size: 14px; opacity: 0.7; display: block; margin-top: 5px; }
+
+        .timeline { 
+            display: flex; justify-content: center; gap: 15px; 
+            margin: 30px 0; flex-wrap: wrap; 
+        }
+
+        .timeline-item { 
+            background: white; padding: 20px; border-radius: 20px; 
+            width: 200px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+        }
+
+        .timeline-item.active { border: 3px solid #0369a1; transform: scale(1.05); }
+
+        /* PAINEL DE BODAS */
+        .bodas-container { 
+            background: white; padding: 25px; border-radius: 20px; 
+            margin: 40px auto; width: 100%; max-width: 600px;
+        }
+
+        .boda-progresso-wrapper { display: flex; align-items: center; gap: 10px; margin-top: 15px; }
+        .barra-progresso { flex-grow: 1; background: #f1f5f9; height: 12px; border-radius: 10px; overflow: hidden; }
+        .preenchimento { height: 100%; background: #0369a1; width: 0%; transition: width 1s; }
+        .ponto-boda { font-weight: bold; font-size: 12px; color: #0369a1; }
+
+        /* GALERIA FIXA 4 POR LINHA */
+        .galeria { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 15px; margin-top: 50px; 
+        }
+
+        .galeria img { 
+            width: 100%; height: 220px; object-fit: cover; 
+            border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 800px) { .galeria { grid-template-columns: repeat(2,
