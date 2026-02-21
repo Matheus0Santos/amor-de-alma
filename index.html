@@ -1,73 +1,41 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matheus ❤️ Lainny</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Estilo de segurança caso o arquivo externo falhe */
-        body { background-color: #e0f2fe; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; }
-        .container { width: 90%; max-width: 1000px; text-align: center; }
-    </style>
-</head>
-<body>
+<div class="container">
+    <h1 class="titulo-pagina">Matheus ❤️ Lainny</h1>
 
-    <nav>
-        <a href="index.html">Início</a>
-        <a href="historia.html">Nossa História</a>
-        <a href="sonhos.html">Sonhos</a>
-        <a href="galeria.html">Galeria</a>
-    </nav>
+    <div class="contador-principal">
+        <h2 id="contador-dias">Calculando...</h2>
+        <span id="contador-segundos" class="segundos-box"></span>
+    </div>
 
-    <div class="container">
-        <h1 class="titulo-pagina">Matheus ❤️ Lainny</h1>
-
-        <iframe style="display:none" width="0" height="0" src="https://www.youtube.com/embed/S_8_K8DAnlo?autoplay=1&loop=1&playlist=S_8_K8DAnlo" frameborder="0" allow="autoplay"></iframe>
-
-        <div class="header-info">
-            <div class="clima-box">
-                <p>📍 Recife: <span id="temp-recife">29°C</span></p>
-                <p>📍 Garanhuns: <span id="temp-garanhuns">21°C</span></p>
-            </div>
-            
-            <div class="calendarios-laterais">
-                <div class="mini-cal">🎂 Meu Níver: <strong>27/07</strong> <br> <span id="regressiva-meu"></span></div>
-                <div class="mini-cal">🎂 Níver Dela: <strong>10/01</strong> <br> <span id="regressiva-dela"></span></div>
-            </div>
-        </div>
-
-        <div class="contadores-tempo">
-            <div id="contador-dias" class="contador-box">Carregando...</div>
-            <span id="contador-segundos" class="segundos-box"></span>
-        </div>
-
-        <div class="bloco-texto destaque">
-            <h3>Onde tudo começou... 💬</h3>
-            <p>"Fala, Matheus!" - A primeira conversa no dia 26/09/2025.</p>
-        </div>
-
-        <h2 class="secao-titulo">Nossa Linha do Tempo</h2>
+    <div class="timeline-container">
         <div class="timeline">
-            <div class="timeline-item"><h4>26/09</h4><p>Primeiro Oi</p></div>
-            <div class="timeline-item"><h4>03/10</h4><p>Encontro</p></div>
-            <div class="timeline-item active"><h4>12/10</h4><p>Namoro</p></div>
-        </div>
-
-        <div class="grid-final">
-            <div class="mapa-box">
-                <h3>Nosso Primeiro Encontro 📍</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126438.28548232777!2d-34.9598218!3d-8.05389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab196f278c0af5%3A0x3190579ac78b0d3d!2sRecife%2C%20PE!5e0!3m2!1spt-BR!2sbr!4v1700000000000" width="100%" height="200" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="timeline-item">
+                <span class="emoji">💬</span>
+                <h4>26/09</h4>
+                <p>O Começo</p>
             </div>
-
-            <div class="bodas-box">
-                <h3>Painel de Bodas 💎</h3>
-                <p id="boda-atual">Próximo Mensário</p>
-                <div class="barra-progresso"><div id="progresso-boda" class="preenchimento"></div></div>
+            <div class="timeline-item">
+                <span class="emoji">💘</span>
+                <h4>03/10</h4>
+                <p>Encontro</p>
+            </div>
+            <div class="timeline-item active">
+                <span class="emoji">💍</span>
+                <h4>12/10</h4>
+                <p>Namoro</p>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <div class="bodas-container">
+        <h3 id="boda-titulo-atual">Bodas de Mensário 🎈</h3>
+        <div class="boda-progresso-wrapper">
+            <span class="ponto-boda" id="boda-passada">0 meses</span>
+            <div class="barra-progresso">
+                <div id="progresso-boda" class="preenchimento"></div>
+            </div>
+            <span class="ponto-boda" id="proxima-boda">1 mês</span>
+        </div>
+        <p id="legenda-boda">Rumo à próxima conquista!</p>
+    </div>
+
+    </div>
