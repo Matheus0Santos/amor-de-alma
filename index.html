@@ -68,4 +68,83 @@
         }
 
         /* RESPONSIVO */
-        @media (max-width: 800px) { .galeria { grid-template-columns: repeat(2,
+        @media (max-width: 800px) { .galeria { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .galeria { grid-template-columns: 1fr; } .timeline-item { width: 100%; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Início</a>
+    <a href="historia.html">Nossa História</a>
+    <a href="sonhos.html">Sonhos</a>
+    <a href="galeria.html">Galeria</a>
+</nav>
+
+<div class="container">
+    <h1 style="margin-bottom: 20px;">Matheus ❤️ Lainny</h1>
+
+    <iframe style="display:none" width="0" height="0" src="https://www.youtube.com/embed/S_8_K8DAnlo?autoplay=1&loop=1&playlist=S_8_K8DAnlo" frameborder="0" allow="autoplay"></iframe>
+
+    <div class="contador-principal">
+        <h2 id="contador-dias">Calculando...</h2>
+        <span id="contador-segundos" class="segundos-box"></span>
+    </div>
+
+    <div class="timeline">
+        <div class="timeline-item"><span>💬</span><h4>26/09</h4><p>Primeiro Oi</p></div>
+        <div class="timeline-item"><span>💘</span><h4>03/10</h4><p>Encontro</p></div>
+        <div class="timeline-item active"><span>💍</span><h4>12/10</h4><p>Namoro</p></div>
+    </div>
+
+    <div class="bodas-container">
+        <h3 id="boda-titulo">Bodas de Mensário 🎈</h3>
+        <div class="boda-progresso-wrapper">
+            <span class="ponto-boda" id="boda-de">0 meses</span>
+            <div class="barra-progresso"><div id="progresso-fill" class="preenchimento"></div></div>
+            <span class="ponto-boda" id="boda-para">1 mês</span>
+        </div>
+    </div>
+
+    <h2 style="margin-top: 60px;">Nossa Galeria</h2>
+    <div class="galeria">
+        <img src="img/foto1.jpg"> <img src="img/foto2.jpg">
+        <img src="img/foto3.jpg"> <img src="img/foto4.jpg">
+        <img src="img/foto5.jpg"> <img src="img/foto6.jpg">
+        <img src="img/foto7.jpg"> <img src="img/foto8.jpg">
+        <img src="img/foto9.jpg"> <img src="img/foto10.jpg">
+        <img src="img/foto11.jpg"> <img src="img/foto12.jpg">
+        <img src="img/foto13.jpg"> <img src="img/foto14.jpg">
+        <img src="img/foto15.jpg">
+    </div>
+</div>
+
+<script>
+    const dataNamoro = new Date("2025-10-12T00:00:00");
+
+    function atualizar() {
+        const agora = new Date();
+        const diff = agora - dataNamoro;
+        
+        const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const segundos = Math.floor(diff / 1000);
+        
+        document.getElementById("contador-dias").innerText = `Estamos juntos há ${dias} dias ❤️`;
+        document.getElementById("contador-segundos").innerText = `${segundos.toLocaleString()} segundos`;
+
+        // Lógica das Bodas (30 dias por mês)
+        const meses = Math.floor(dias / 30);
+        const diasRestantes = dias % 30;
+        const perc = (diasRestantes / 30) * 100;
+
+        document.getElementById("boda-de").innerText = `${meses} meses`;
+        document.getElementById("boda-para").innerText = `${meses + 1} meses`;
+        document.getElementById("progresso-fill").style.width = perc + "%";
+    }
+
+    setInterval(atualizar, 1000);
+    atualizar();
+</script>
+
+</body>
+</html>
