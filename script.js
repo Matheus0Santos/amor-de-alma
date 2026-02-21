@@ -1,27 +1,22 @@
-const dataInicio = new Date("2025-10-12T00:00:00");
+const dataNamoro = new Date("2025-10-12T00:00:00");
 
-function atualizarBodas() {
-    const hoje = new Date();
-    const diffTime = Math.abs(hoje - dataInicio);
-    const totalDias = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+function atualizar() {
+    const agora = new Date();
+    const diff = agora - dataNamoro;
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
     
-    // Lógica de Mensário (Exemplo: 30 em 30 dias)
-    const mesesJuntos = Math.floor(totalDias / 30);
-    const diasNesseMes = totalDias % 30;
-    const porcentagem = (diasNesseMes / 30) * 100;
+    if(document.getElementById("contador-dias")) {
+        document.getElementById("contador-dias").innerText = `Juntos há ${dias} dias ❤️`;
+    }
 
-    document.getElementById("boda-passada").innerText = `${mesesJuntos} meses`;
-    document.getElementById("proxima-boda").innerText = `${mesesJuntos + 1} meses`;
-    document.getElementById("progresso-boda").style.width = porcentagem + "%";
-    
-    // Atualiza título com emoji (exemplo simples)
-    const emojis = ["🎈", "🍦", "🍫", "🍕", "🎥", "🏰", "🏠"];
-    const emojiAtual = emojis[mesesJuntos % emojis.length];
-    document.getElementById("boda-titulo-atual").innerText = `Bodas de Mensário ${emojiAtual}`;
+    // Bodas
+    const meses = Math.floor(dias / 30);
+    const perc = ((dias % 30) / 30) * 100;
+    if(document.getElementById("progresso-fill")) {
+        document.getElementById("boda-de").innerText = `${meses} meses`;
+        document.getElementById("boda-para").innerText = `${meses + 1} meses`;
+        document.getElementById("progresso-fill").style.width = perc + "%";
+    }
 }
-
-// Chame essa função dentro do seu setInterval de tempo
-setInterval(() => {
-    // ... seu código de contador anterior ...
-    atualizarBodas();
-}, 1000);
+setInterval(atualizar, 1000);
+atualizar();
